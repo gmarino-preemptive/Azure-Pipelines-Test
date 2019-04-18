@@ -20,5 +20,5 @@ steps:
 
 - task: ProvisionDotfuscatorCE@1
   inputs:
-    dotfuscatorSN: '262202'
+    dotfuscatorSN: '262202-391'
     dotfuscatorDistro: '15'
