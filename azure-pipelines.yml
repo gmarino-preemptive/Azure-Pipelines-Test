@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'vs2017-win2016'
 
 steps:
 - script: echo Hello, world!
@@ -21,4 +21,4 @@ steps:
 - task: ProvisionDotfuscatorCE@1
   inputs:
     dotfuscatorSN: '262202-391'
-    dotfuscatorDistro: '16'
+    dotfuscatorDistro: '15'
