@@ -18,7 +18,6 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: ProvisionDotfuscatorCE@1
-  inputs:
-    dotfuscatorSN: '262202-391'
-    dotfuscatorDistro: '15'
+- script:
+    ".\\C:\\Program Files (x86)\\Microsoft Visual Studio\\Install\\vs_installer.exe" modify --installPath "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise" --add Component.Dotfuscator
+  displayName: 'Install Dotfuscator'
