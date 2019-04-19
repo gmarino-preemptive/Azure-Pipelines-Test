@@ -19,6 +19,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
+  displayName: "Restore NuGet Packages"
 
 - task: VSBuild@1
   inputs:
@@ -34,3 +35,4 @@ steps:
 - task: ProtectWithDotfuscatorCE@1
   inputs:
     configFile: 'Azure Pipelines Test\\Azure Pipelines Test\\DotfuscatorConfig.xml'
+  displayName: "Protect With Dotfuscator Community"
