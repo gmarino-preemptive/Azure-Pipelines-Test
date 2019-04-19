@@ -16,6 +16,10 @@ steps:
     dotfuscatorDistro: '15'
   displayName: "Provision Dotfuscator"
 
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
@@ -24,7 +28,7 @@ steps:
     configuration: 'Release'
     clean: true
     maximumCpuCount: true
-    restoreNugetPackages: true
+    restoreNugetPackages: false
   displayName: "Build Solution"
 
 - task: ProtectWithDotfuscatorCE@1
