@@ -7,18 +7,26 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2015-win2012r2'
+  vmImage: 'vs2017-win2016'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script:
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 - task: ProvisionDotfuscatorCE@1
   inputs:
     dotfuscatorSN: '262202-391'
-    dotfuscatorDistro: '14'
+    dotfuscatorDistro: '15'
+  displayName: "Provision Dotfuscator"
+
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    vsVersion: '15.0'
+    platform: 'Any CPU'
+    configuration: 'Release'
+    clean: true
+    maximumCpuCount: true
+    restoreNugetPackages: true
+  displayName: "Build Solution"
+
+- task: ProtectWithDotfuscatorCE@1
+  inputs:
+    configFile: 'Azure Pipelines Test\\Azure Pipelines Test\\DotfuscatorConfig.xml'
