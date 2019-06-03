@@ -13,7 +13,7 @@ steps:
 - task: ProvisionDotfuscatorCE@1
   inputs:
     dotfuscatorSN: '262202-391'
-    dotfuscatorDistro: '15'
+    dotfuscatorDistro: '16'
   displayName: "Provision Dotfuscator"
 
 - task: NuGetCommand@2
