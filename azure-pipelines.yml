@@ -9,7 +9,11 @@ trigger:
 pool:
   vmImage: 'windows-2019'
 
+
 steps:
+- script: 'Get-ChildItem -Path C:\ -Filter dotfuscatorCLI.exe -Recurse -ErrorAction SilentlyContinue -Force'
+- script: 'Get-ChildItem -Path D:\ -Filter dotfuscatorCLI.exe -Recurse -ErrorAction SilentlyContinue -Force'
+
 - task: ProvisionDotfuscatorCE@1
   inputs:
     dotfuscatorSN: '262202-391'
